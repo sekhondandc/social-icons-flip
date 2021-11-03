@@ -1,0 +1,93 @@
+:root{
+	--gry:#292929;
+	--wht:#ffffff;
+	--blk:#000000;
+	--fa_a:#3B5998; 
+	--fa_b:#FFFFFF;
+	--tw_a:#66757F;
+	--tw_b:#00ACEE;
+	--tw_c:#36D8FF;
+	--tw_d:#F5F8FA;
+	--in_a:#405DE6;
+	--in_b:#5851DB;
+	--in_c:#833AB4;
+	--in_d:#C13584;
+	--in_e:#E1306C;
+	--in_f:#FD1D1D;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gry);
+}
+.social-icons .icon{
+    display: inline-block;
+}
+.social-icons .flip-box{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.social-icons .flip-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: 1s ease-in-out;
+    transform: perspective(200px) rotateX(0deg);
+}
+.social-icons .content{
+    transform: perspective(200px) translateZ(40px);
+}
+
+.social-icons .front{
+    background: var(--wht);
+    box-shadow: 3px 3px 10px 0 var(--blk);
+}
+.social-icons .front .content{
+    color: var(--blk);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.social-icons .back{
+    transform: perspective(200px) rotateX(180deg);
+}
+.social-icons .icon.facebook .back{
+    background: linear-gradient(120deg, var(--fa_a), var(--fa_b));
+}
+.social-icons .icon.twitter .back{
+    background: linear-gradient(45deg, var(--tw_a), var(--tw_b), var(--tw_c), var(--tw_d));
+}
+.social-icons .icon.instagram .back{
+    background: linear-gradient(45deg, var(--in_a), var(--in_b), var(--in_c), var(--in_d), var(--in_e), var(--in_f));
+}
+.social-icons .back .content{
+    color: var(--wht);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.social-icons .flip-box:hover .front{
+    transform: perspective(200px) rotateX(180deg);
+}
+.social-icons .flip-box:hover .back{
+    transform: perspective(200px) rotateX(360deg);
+}
